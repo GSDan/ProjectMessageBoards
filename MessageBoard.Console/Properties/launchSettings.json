@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MessageBoard.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "\"Alice -> @Moonshot I'm working on the log on screen\""
+    }
+  }
+}
