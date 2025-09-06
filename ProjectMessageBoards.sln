@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard.Domain", "Mess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard.Infrastructure", "MessageBoard.Infrastructure\MessageBoard.Infrastructure.csproj", "{647AFA4E-AABC-419D-A090-5E2F92850436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard.Shared", "MessageBoard.Shared\MessageBoard.Shared.csproj", "{497BE63A-6580-47AC-BC69-28986E3BD858}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard.Application", "MessageBoard.Application\MessageBoard.Application.csproj", "{086A6498-B2F5-4213-86BA-989BC8EC04EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoard.Console", "MessageBoard.Console\MessageBoard.Console.csproj", "{0BA61E19-7AC4-F1D9-CA23-29A874B27A33}"
@@ -27,10 +25,6 @@ Global
 		{647AFA4E-AABC-419D-A090-5E2F92850436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{647AFA4E-AABC-419D-A090-5E2F92850436}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{647AFA4E-AABC-419D-A090-5E2F92850436}.Release|Any CPU.Build.0 = Release|Any CPU
-		{497BE63A-6580-47AC-BC69-28986E3BD858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{497BE63A-6580-47AC-BC69-28986E3BD858}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{497BE63A-6580-47AC-BC69-28986E3BD858}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{497BE63A-6580-47AC-BC69-28986E3BD858}.Release|Any CPU.Build.0 = Release|Any CPU
 		{086A6498-B2F5-4213-86BA-989BC8EC04EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{086A6498-B2F5-4213-86BA-989BC8EC04EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{086A6498-B2F5-4213-86BA-989BC8EC04EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
