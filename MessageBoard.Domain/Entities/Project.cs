@@ -1,12 +1,14 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MessageBoard.Domain.Entities
 {
     [method: SetsRequiredMembers]
-    public class Project(string name) : BaseEntity
+    public class Project(string displayName)
     {
-        public required string Name { get; set; } = name;
-
+        [Key]
+        public required string NormalisedName { get; set; } = displayName.ToUpperInvariant();
+        public required string DisplayName { get; set; } = displayName;
         public List<Post> Posts { get; set; } = [];
     }
 }

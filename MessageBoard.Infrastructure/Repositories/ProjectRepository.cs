@@ -6,6 +6,7 @@ namespace MessageBoard.Infrastructure.Repositories
     public interface IProjectRepository
     {
         Task<Project> Add(Project newProject);
+        Task<Project?> Get(string projectName);
     }
 
     public class ProjectRepository(IDbContextFactory<MessageBoardDbContext> contextFactory) : IProjectRepository
@@ -17,6 +18,12 @@ namespace MessageBoard.Infrastructure.Repositories
             await context.SaveChangesAsync();
 
             return newProject;
+        }
+
+        public async Task<Project?> Get(string projectName)
+        {
+            using var context = await contextFactory.CreateDbContextAsync();
+            return await context.Projects.FindAsync(projectName);
         }
     }
 }

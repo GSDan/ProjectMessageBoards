@@ -6,7 +6,7 @@ namespace MessageBoard.Infrastructure.Repositories
     public interface IUserRepository
     {
         Task<User> Add(User newUser);
-        Task<User?> Get(Guid id);
+        Task<User?> Get(string userName);
     }
 
     public class UserRepository(IDbContextFactory<MessageBoardDbContext> contextFactory) : IUserRepository
@@ -15,11 +15,11 @@ namespace MessageBoard.Infrastructure.Repositories
         {
             using var context = await contextFactory.CreateDbContextAsync();
 
-            User? existing = await context.Users.FindAsync(newUser.Id);
+            User? existing = await context.Users.FindAsync(newUser.NormalisedDisplayName);
 
             if (existing != null)
             {
-                throw new ArgumentException("User with that ID already exists", nameof(newUser));
+                throw new ArgumentException("User with that username already exists", nameof(newUser));
             }
 
             context.Users.Add(newUser);
@@ -28,10 +28,10 @@ namespace MessageBoard.Infrastructure.Repositories
             return newUser;
         }
 
-        public async Task<User?> Get(Guid id)
+        public async Task<User?> Get(string userName)
         {
             using var context = await contextFactory.CreateDbContextAsync();
-            return await context.Users.FindAsync(id);
+            return await context.Users.FindAsync(userName.ToUpperInvariant());
         }
     }
 }

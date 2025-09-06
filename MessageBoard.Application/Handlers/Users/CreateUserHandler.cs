@@ -5,15 +5,13 @@ using MessageBoard.Infrastructure.Repositories;
 
 namespace MessageBoard.Application.Handlers.Users
 {
-    public class CreateUserHandler(IUserRepository userRepository) : IRequestHandler<CreateUserCommand, Guid>
+    public class CreateUserHandler(IUserRepository userRepository) : IRequestHandler<CreateUserCommand, string>
     {
-        public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             User newUser = new(request.Name);
-
             await userRepository.Add(newUser);
-
-            return newUser.Id;
+            return newUser.NormalisedDisplayName;
         }
     }
 }

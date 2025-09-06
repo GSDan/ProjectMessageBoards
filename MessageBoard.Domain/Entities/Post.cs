@@ -1,15 +1,15 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MessageBoard.Domain.Entities
 {
-    [method: SetsRequiredMembers]
-    public class Post(Guid userId, Guid projectId, string message) : BaseEntity
+    public class Post
     {
-        public required Guid UserId { get; set; } = userId;
-
+        [Key]
+        public required Guid Id { get; set; }
+        public required DateTime CreatedAt { get; set; }
+        public required string UserNormalisedDisplayName { get; set; }
         public virtual User User { get; set; }
-
-        public required Guid ProjectId { get; set; } = projectId;
-        public required string Message { get; set; } = message;
+        public required string ProjectNormalisedName { get; set; }
+        public required string Message { get; set; }
     }
 }
