@@ -3,7 +3,7 @@ using MessageBoard.Application.Commands;
 using MessageBoard.Domain.Entities;
 using MessageBoard.Infrastructure.Repositories;
 
-namespace MessageBoard.Application.Handlers
+namespace MessageBoard.Application.Handlers.Users
 {
     public class CreateUserHandler(IUserRepository userRepository) : IRequestHandler<CreateUserCommand, Guid>
     {

@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using MessageBoard.Application;
 using MessageBoard.Application.Commands;
+using MessageBoard.Application.DTOs;
+using MessageBoard.Application.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -30,4 +32,6 @@ var mediator = host.Services.GetRequiredService<IMediator>();
 
 Guid userId = await mediator.Send(new CreateUserCommand("Mr Test"));
 
-Console.WriteLine(userId);
+UserDTO? userFromDb = await mediator.Send(new GetUserQuery(userId));
+
+Console.WriteLine(userFromDb?.Name ?? "Not found");

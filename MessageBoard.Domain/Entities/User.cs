@@ -6,5 +6,7 @@ namespace MessageBoard.Domain.Entities
     public class User(string userName) : BaseEntity
     {
         public required string UserName { get; set; } = userName;
+
+        public List<Project> Follows { get; set; } = [];
     }
 }

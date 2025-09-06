@@ -1,4 +1,5 @@
 ﻿using MessageBoard.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace MessageBoard.Infrastructure.Repositories
 {
@@ -7,11 +8,13 @@ namespace MessageBoard.Infrastructure.Repositories
         Task<Project> Add(Project newProject);
     }
 
-    public class ProjectRepository : IProjectRepository
+    public class ProjectRepository(IDbContextFactory<MessageBoardDbContext> contextFactory) : IProjectRepository
     {
         public async Task<Project> Add(Project newProject)
         {
-            // add to db
+            using var context = await contextFactory.CreateDbContextAsync();
+            context.Projects.Add(newProject);
+            await context.SaveChangesAsync();
 
             return newProject;
         }

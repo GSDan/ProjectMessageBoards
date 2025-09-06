@@ -6,5 +6,7 @@ namespace MessageBoard.Domain.Entities
     public class Project(string name) : BaseEntity
     {
         public required string Name { get; set; } = name;
+
+        public List<Post> Posts { get; set; } = [];
     }
 }
