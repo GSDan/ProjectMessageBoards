@@ -1,9 +1,12 @@
-﻿namespace MessageBoard.Domain.Entities
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace MessageBoard.Domain.Entities
 {
-    public class Post : BaseEntity
+    [method: SetsRequiredMembers]
+    public class Post(Guid userId, Guid projectId, string message) : BaseEntity
     {
-        public required Guid UserId { get; set; }
-        public required Guid ProjectId { get; set; }
-        public required string Message { get; set; }
+        public required Guid UserId { get; set; } = userId;
+        public required Guid ProjectId { get; set; } = projectId;
+        public required string Message { get; set; } = message;
     }
 }

@@ -1,7 +1,10 @@
-﻿namespace MessageBoard.Domain.Entities
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace MessageBoard.Domain.Entities
 {
-    public class User : BaseEntity
+    [method: SetsRequiredMembers]
+    public class User(string userName) : BaseEntity
     {
-        public required string UserName { get; set; }
+        public required string UserName { get; set; } = userName;
     }
 }
